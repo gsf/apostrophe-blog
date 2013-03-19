@@ -4,10 +4,9 @@ var extend = require('extend');
 var snippets = require('apostrophe-snippets');
 var util = require('util');
 
-// Intended for use as a constructor
-// var blog = new require('apostrophe-blog')(options, callback);
-
 module.exports = blog;
+
+// Expose the constructor for potential inheritance
 blog.Blog = Blog;
 
 function blog (options, callback) {
@@ -65,4 +64,3 @@ function Blog (options, callback) {
   // use in whatever our callback is invoking
   process.nextTick(function() { return callback(null); });
 };
-
