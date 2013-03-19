@@ -7,7 +7,14 @@ var util = require('util');
 // Intended for use as a constructor
 // var blog = new require('apostrophe-blog')(options, callback);
 
-module.exports = function(options, callback) {
+module.exports = blog;
+blog.Blog = Blog;
+
+function blog (options, callback) {
+  return new Blog(options, callback);
+}
+
+function Blog (options, callback) {
   var self = this;
   _.defaults(options, {
     instance: 'blogPost',
